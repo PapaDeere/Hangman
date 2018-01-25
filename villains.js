@@ -10,14 +10,14 @@ function villain(value) {
     }
 };
 
-word.prototype.isComplete = function() {
+villain.prototype.isComplete = function() {
     for (var i = 0; i < this.letters.length; i++) {
         if (this.letters[i].show) return false;
     }
     return true;
 }
 
-word.prototype.findLetter = function(letter) {
+villain.prototype.findLetter = function(letter) {
     var upperLetter = letter.toUpperCase();
     if (this.guessesMade.indexOf(upperLetter) != -1) {
         return "Duplicate, try again";
@@ -30,7 +30,7 @@ word.prototype.findLetter = function(letter) {
     }
 };
 
-word.prototype.toString = function() {
+villain.prototype.toString = function() {
     var output = "";
     for (var i = 0; i < this.letters.length; i++) {
         output += this.letters[i].printInfo();
@@ -38,4 +38,4 @@ word.prototype.toString = function() {
     return output;
 }
 
-exports.wordCons = word;
+exports.wordCons = villain;
