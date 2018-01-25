@@ -1,12 +1,12 @@
 var game = require("./game.js");
-var wordCons = require("./villains.js");
+var villainCons = require("./villains.js");
 var letterCons = require("./letter.js");
 var inquirer = require("inquirer");
 var villainName = game.villainName;
 var letterGuessed;
 exports.letter;
 
-var myVill = new wordCons.wordCons(game.villainName);
+var myVill = new villainCons.villainCons(game.villainName);
 var maxGuesses = 16;
 
 function takeAGuess() {
@@ -22,7 +22,7 @@ function takeAGuess() {
         validate: function(str) {
             if (str.length != 1) return false;
             var regEx = new RegExp("^[a-zA-Z\s]{1,1}$");
-            return regEx.text(str);
+            return regEx.test(str);
         }
     }]).then(function(letterInput) {
         var letter = letterInput.letter;

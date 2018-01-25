@@ -38,4 +38,4 @@ villain.prototype.toString = function() {
     return output;
 }
 
-exports.wordCons = villain;
+exports.villainCons = villain;
