@@ -1,16 +1,15 @@
 //letter display control
-exports.letter = letter;
-
-function letter(value) {
+function Letter(value) {
 	this.value = value;
 	this.show = false;
 	if (this.value == ' ')
 		this.show = true;
 }
 
-letter.prototype.printInfo = function() {
+Letter.prototype.printInfo = function() {
 	if (this.show) {
 		return this.value;
 	}
 	return "_ ";
 }
+module.exports = Letter;

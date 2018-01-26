@@ -1,23 +1,24 @@
 //check the letters guessed against the villain selected.
 var letterCons = require("./letter.js");
 
-function villain(value) {
+function Villain(value) {
     this.value = value;
     this.letters = [];
     this.guessesMade = "";
     for (var i = 0; i < this.value.length; i++) {
-        this.letters.push(new letterCons.letter(this.value[i]));
+        this.letters.push(new letterCons(this.value[i]));
     }
+    console.log(this.letters);
 };
 
-villain.prototype.isComplete = function() {
+Villain.prototype.isComplete = function() {
     for (var i = 0; i < this.letters.length; i++) {
         if (this.letters[i].show) return false;
     }
     return true;
 }
 
-villain.prototype.findLetter = function(letter) {
+Villain.prototype.findLetter = function(letter) {
     var upperLetter = letter.toUpperCase();
     if (this.guessesMade.indexOf(upperLetter) != -1) {
         return "Duplicate, try again";
@@ -30,7 +31,7 @@ villain.prototype.findLetter = function(letter) {
     }
 };
 
-villain.prototype.toString = function() {
+Villain.prototype.toString = function() {
     var output = "";
     for (var i = 0; i < this.letters.length; i++) {
         output += this.letters[i].printInfo();
@@ -38,4 +39,4 @@ villain.prototype.toString = function() {
     return output;
 }
 
-exports.villainCons = villain;
+module.exports = Villain;

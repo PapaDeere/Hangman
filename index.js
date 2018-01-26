@@ -1,12 +1,12 @@
-var game = require("./game.js");
-var villainCons = require("./villains.js");
+var villainName = require("./villainName.js");
+var VillainCons = require("./villains.js");
 var letterCons = require("./letter.js");
 var inquirer = require("inquirer");
-var villainName = game.villainName;
 var letterGuessed;
-exports.letter;
 
-var myVill = new villainCons.villainCons(game.villainName);
+//var myVill = new villainCons.villainCons(game.villainName);
+var myVill = new VillainCons(villainName);
+console.log(myVill);
 var maxGuesses = 16;
 
 function takeAGuess() {
